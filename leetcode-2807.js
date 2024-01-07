@@ -1,5 +1,3 @@
-
-
 function ListNode(val, next) {
     this.val = (val===undefined ? 0 : val)
     this.next = (next===undefined ? null : next)
@@ -10,7 +8,7 @@ function ListNode(val, next) {
 * @return {ListNode}
 */
 var insertGreatestCommonDivisors = function(head) {
-   let linked_list = new ListNode(head.val, head.next);
+   let linked_list = head;
    let lcm = gcd = 1;
 
    while (linked_list.next !== null){
@@ -20,9 +18,9 @@ var insertGreatestCommonDivisors = function(head) {
 
        let temp_node = new ListNode(gcd, next_node);
        
-       linked_list.next = temp_node;
-
-       linked_list = temp_node.next
+       linked_list.next = temp_node
+       linked_list = linked_list.next.next
+       
    }
 
    return head;
